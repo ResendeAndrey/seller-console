@@ -1,174 +1,183 @@
+Claro, aqui está o seu `README.md` formatado corretamente para o GitHub.
+
+---
+
 # Mini Seller Console
 
 [![Vitest](https://img.shields.io/badge/tests-vitest-blue)](https://vitest.dev/)
 [![Cypress](https://img.shields.io/badge/tests-cypress-green)](https://www.cypress.io/)
 
-Mini Seller Console is a CRM dashboard for managing **Leads** and **Opportunities**.
+Mini Seller Console é um painel de CRM para gerenciar **Leads** e **Oportunidades**.
 
-- Manage, filter, search, and convert leads into opportunities.
-- Dark/Light mode with preference stored in `localStorage`.
-- React Query caching improves performance.
-- HOC `WithHeader` ensures consistent layout with Header.
-- All files contain comments explaining responsibilities.
+- Gerencie, filtre, pesquise e converta leads em oportunidades.
+- Modo Dark/Light com preferência salva no `localStorage`.
+- O cache do React Query melhora a performance.
+- O HOC `WithHeader` garante um layout consistente com o Header.
+- Todos os arquivos contêm comentários explicando suas responsabilidades.
 
 ---
 
-## Project Structure
+## Estrutura do Projeto
 
+```
 app/
-├─ app.tsx # Main app entry point
-├─ provider/ # AppProvider (QueryClientProvider & ThemeProvider)
-├─ routes/ # AppRouter configuration
-├─ pages/
-│ └─ dashboard/
-│ ├─ leads.tsx # Leads page
-│ └─ opportunities.tsx # Opportunities page
+├─ app.tsx               # Ponto de entrada principal da aplicação
+├─ provider/             # AppProvider (QueryClientProvider & ThemeProvider)
+├─ routes/               # Configuração do AppRouter
+└─ pages/
+   └─ dashboard/
+      ├─ leads.tsx         # Página de Leads
+      └─ opportunities.tsx # Página de Oportunidades
 features/
 ├─ leads/
-│ ├─ components/ # Leads page components (Filter, SlideOver)
-│ ├─ hooks/ # React Query hooks for leads
-│ ├─ utils/ # Column definitions, validation schema, constants
-│ └─ api/ # API calls (if any)
-├─ opportunities/
-│ ├─ components/ # Opportunities page components
-│ ├─ hooks/ # React Query hooks for opportunities
-│ ├─ utils/ # Column definitions, constants
-│ └─ api/ # API calls (if any)
+│  ├─ components/        # Componentes da página de Leads (Filter, SlideOver)
+│  ├─ hooks/             # Hooks do React Query para leads
+│  ├─ utils/             # Definições de colunas, schema de validação, constantes
+│  └─ api/               # Chamadas de API (se houver)
+└─ opportunities/
+   ├─ components/        # Componentes da página de Oportunidades
+   ├─ hooks/             # Hooks do React Query para oportunidades
+   ├─ utils/             # Definições de colunas, constantes
+   └─ api/               # Chamadas de API (se houver)
 hooks/
-└─ customs/
-├─ useDebounce.ts # Custom debounce hook
+├─ customs/
+│  └─ useDebounce.ts     # Hook customizado de debounce
 └─ hoc/
-└─ withHeader.tsx # HOC wrapping pages/components with Header
+   └─ withHeader.tsx     # HOC que envolve páginas/componentes com o Header
 layout/
-└─ Header.tsx # Header component
-components/ # Shared UI components (Button, Input, Loading, Pagination, SearchInput)
+└─ Header.tsx            # Componente Header
+components/               # Componentes de UI compartilhados (Button, Input, Loading, etc.)
 context/
-└─ theme/ # ThemeProvider (Dark/Light mode)
+└─ theme/                # ThemeProvider (Modo Dark/Light)
 utils/
-├─ constants/ # Table height, filter options
-└─ helpers/ # Utility functions
-
-markdown
-Copiar
-Editar
+├─ constants/            # Altura da tabela, opções de filtro
+└─ helpers/              # Funções utilitárias
+```
 
 ---
 
-## Technologies Used
+## Tecnologias Utilizadas
 
 - **Frontend:** React 19, TypeScript, TailwindCSS, React Router, React Hook Form, AgGrid
-- **State Management & API:** React Query (`useQuery`, `useMutation`) with caching
-- **Backend:** Express, CORS, UUID, simulated Leads & Opportunities data
-- **Testing:** Vitest (unit tests), Cypress (E2E tests)
-- **Utilities:** clsx, sonner (toasts), yup (validation)
+- **Gerenciamento de Estado & API:** React Query (`useQuery`, `useMutation`) com cache
+- **Backend:** Express, CORS, UUID, dados simulados de Leads & Oportunidades
+- **Testes:** Vitest (testes unitários), Cypress (testes E2E)
+- **Utilitários:** clsx, sonner (toasts), yup (validação)
 
 ---
 
-## Features
+## Funcionalidades
 
-### Leads Page
+### Página de Leads
 
-- Search, filter by status, and pagination
-- Edit leads using a SlideOver component
-- Convert leads into opportunities
+- Pesquisa, filtro por status e paginação.
+- Edição de leads usando um componente SlideOver.
+- Conversão de leads em oportunidades.
 
-### Opportunities Page
+### Página de Oportunidades
 
-- Search and pagination
-- Displays all converted leads
+- Pesquisa e paginação.
+- Exibe todos os leads convertidos.
 
-### Dark/Light Mode
+### Modo Dark/Light
 
-- Managed via `ThemeProvider`
-- Preference stored in `localStorage`
-- Components adapt dynamically
+- Gerenciado via `ThemeProvider`.
+- Preferência armazenada no `localStorage`.
+- Componentes se adaptam dinamicamente.
 
 ### HOC `WithHeader`
 
-- Wraps pages/components with Header and consistent layout
+- Envolve páginas/componentes com o Header para um layout consistente.
 
 ### Performance
 
-- React Query caches API responses to reduce network calls
-- Debounce implemented in search inputs
+- React Query armazena respostas de API em cache para reduzir chamadas de rede.
+- Debounce implementado nos campos de busca.
 
 ---
 
-## Getting Started
+## Como Começar
 
-### Prerequisites
+### Pré-requisitos
 
 - Node.js v20+
-- Yarn package manager
+- Gerenciador de pacotes Yarn
 
-### Install Dependencies
+### Instalar Dependências
 
 ```bash
 yarn install
-Run Development
-bash
-Copiar
-Editar
-yarn dev
-Runs Vite frontend + Express backend concurrently
-
-Frontend: http://localhost:5000
-
-Backend: http://localhost:4000
-
-Build
-bash
-Copiar
-Editar
-yarn build
-Run Backend Only
-bash
-Copiar
-Editar
-yarn serve
-Preview Frontend
-bash
-Copiar
-Editar
-yarn preview
-Testing
-Unit Tests
-bash
-Copiar
-Editar
-yarn test          # Run all unit tests
-yarn test:ui       # Interactive UI
-yarn test:coverage # Coverage report
-E2E Tests
-bash
-Copiar
-Editar
-yarn cypress       # Open Cypress UI
-yarn cypress:run   # Run Cypress headless
-Backend Overview
-/api/leads
-
-GET - List leads with pagination, optional search/status filters
-
-PATCH - Update a lead by ID
-
-/api/opportunities
-
-GET - List opportunities with pagination and search
-
-POST - Convert a lead into an opportunity
-
-Leads are randomly generated with name, company, email, score, status, and source
-
-Converting a lead removes it from leads and adds it to opportunities
-
-Performance & Caching
-React Query caches API calls for Leads and Opportunities to improve UI responsiveness
-
-Debounced search reduces unnecessary network calls
-
-Code Documentation
-Every file contains comments explaining purpose and responsibilities
-
-Simplifies onboarding and maintenance
 ```
+
+### Rodar em Desenvolvimento
+
+```bash
+yarn dev
+```
+> Executa o frontend Vite + backend Express simultaneamente.
+> - **Frontend:** `http://localhost:5000`
+> - **Backend:** `http://localhost:4000`
+
+### Build
+
+```bash
+yarn build
+```
+
+### Rodar Apenas o Backend
+
+```bash
+yarn serve
+```
+
+### Preview do Frontend
+
+```bash
+yarn preview
+```
+
+---
+
+## Testes
+
+### Testes Unitários
+
+```bash
+yarn test          # Roda todos os testes unitários
+yarn test:ui       # UI interativa
+yarn test:coverage # Relatório de cobertura
+```
+
+### Testes E2E
+
+```bash
+yarn cypress       # Abre a UI do Cypress
+yarn cypress:run   # Roda o Cypress em modo headless
+```
+
+---
+
+## Visão Geral do Backend
+
+#### `/api/leads`
+- **GET:** Lista leads com paginação e filtros opcionais de busca/status.
+- **PATCH:** Atualiza um lead por ID.
+
+#### `/api/opportunities`
+- **GET:** Lista oportunidades com paginação e busca.
+- **POST:** Converte um lead em uma oportunidade.
+
+> Os leads são gerados aleatoriamente com nome, empresa, e-mail, pontuação, status e origem.
+> Converter um lead o remove da lista de leads e o adiciona às oportunidades.
+
+---
+
+## Performance & Caching
+
+- O **React Query** armazena em cache as chamadas de API para Leads e Oportunidades para melhorar a responsividade da UI.
+- A busca com **debounce** reduz chamadas de rede desnecessárias.
+
+## Documentação do Código
+
+- Cada arquivo contém comentários explicando seu propósito e responsabilidades.
+- Simplifica o onboarding de novos desenvolvedores e a manutenção do código.
