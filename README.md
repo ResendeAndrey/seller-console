@@ -62,7 +62,7 @@ utils/
 
 ## Technologies Used
 
-* **Frontend:** React 19, TypeScript, TailwindCSS, React Router, React Hook Form, AgGrid
+* **Frontend:** React 19 + Vite, TypeScript, TailwindCSS, React Router, React Hook Form, AgGrid
 * **State Management & API:** React Query (`useQuery`, `useMutation`) with caching
 * **Backend:** Express, CORS, UUID, simulated Leads & Opportunities data
 * **Testing:** Vitest (unit tests), Cypress (E2E tests)
@@ -169,6 +169,11 @@ yarn test          # Run all unit tests
 yarn test:ui       # Interactive UI
 yarn test:coverage # Coverage report
 ```
+<div align="center">
+<img width="799" height="470" alt="image" src="https://github.com/user-attachments/assets/7d864c18-5ab9-4dcc-81c3-9d828ce88dd4" />
+</div>
+
+
 
 ### E2E Tests
 
@@ -176,7 +181,9 @@ yarn test:coverage # Coverage report
 yarn cypress       # Open Cypress UI
 yarn cypress:run   # Run Cypress headless
 ```
-
+<div align="center">
+<img width="724" height="546" alt="image" src="https://github.com/user-attachments/assets/1296cd0d-3016-48b2-ab51-0741fc9b23b8" />
+</div>
 ---
 
 ## Backend Overview
